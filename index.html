@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+
+  <style>
+    html, body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    iframe {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    #principal {
+      display: block;
+    }
+
+    #destino {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <iframe id="principal" src="work.mhtml"></iframe>
+  <iframe id="destino" src="about:blank"></iframe>
+
+  <script>
+    const clave = "gamesmariopro";
+    let escrito = "";
+
+    document.addEventListener("keydown", function (e) {
+      if (e.ctrlKey || e.altKey || e.metaKey) return;
+
+      if (e.key === "Backspace") {
+        escrito = escrito.slice(0, -1);
+        return;
+      }
+
+      if (e.key.length !== 1) return;
+
+      escrito = (escrito + e.key.toLowerCase())
+        .slice(-clave.length);
+
+      if (escrito === clave) {
+        document.getElementById("principal").style.display = "none";
+
+        const destino = document.getElementById("destino");
+        destino.src = "https://garbsoftball.com/";
+        destino.style.display = "block";
+
+        escrito = "";
+      }
+    });
+  </script>
+
+</body>
+</html>
