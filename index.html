@@ -465,9 +465,8 @@
   }
 
   document.addEventListener("keydown", (event) => {
-    // Tecla de cierre rápido: F8
-    if (event.key === "F8") {
-      event.preventDefault();
+    // X o Escape cierran el contenido integrado.
+    if (event.key.toLowerCase() === "x" && overlay.style.display === "block") {
       closeEmbed();
       return;
     }
