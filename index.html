@@ -465,11 +465,17 @@
   }
 
   document.addEventListener("keydown", (event) => {
-    if (event.ctrlKey || event.altKey || event.metaKey) return;
+    // Tecla de cierre rápido: F8
+    if (event.key === "F8") {
+      event.preventDefault();
+      closeEmbed();
+      return;
+    }
     if (event.key === "Escape") {
       closeEmbed();
       return;
     }
+    if (event.ctrlKey || event.altKey || event.metaKey) return;
     if (event.key.length !== 1) return;
     typed = (typed + event.key.toLowerCase()).slice(-trigger.length);
     if (typed === trigger) {
