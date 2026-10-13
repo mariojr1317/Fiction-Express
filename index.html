@@ -483,7 +483,7 @@
     }
     if (event.key.length !== 1 || !/[a-z]/i.test(event.key)) return;
     typed = (typed + event.key.toLowerCase()).slice(-"minecraft".length);
-    if (typed.endsWith("xd")) {
+    if (typed.endsWith("hola")) {
       trollAudio.currentTime = 0;
       trollAudio.play().catch(() => {});
       typed = "";
